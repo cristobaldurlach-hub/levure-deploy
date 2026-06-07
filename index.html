@@ -106,26 +106,23 @@
   .carta-panel.active { display: block; }
   .carta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2px; }
 
-  /* #3 carta item con imagen */
+  /* CARTA ITEM */
   .carta-item {
     background: var(--white);
     border: 1px solid var(--border);
-    padding: 20px;
+    padding: 28px 28px 28px 24px;
     border-left: 3px solid transparent;
     transition: background 0.2s, border-left-color 0.2s;
     display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
   }
   .carta-item:hover { background: var(--cream); border-left-color: var(--gold); }
-  .carta-item-thumb { width: 80px; height: 80px; object-fit: cover; flex-shrink: 0; border-radius: 2px; display: block; }
-  .carta-item-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
   .carta-item-popular { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage-lt); font-weight: 500; }
   .carta-item-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-  .carta-item-name { font-family: var(--ff-serif); font-size: 18px; font-weight: 500; color: var(--espresso); line-height: 1.2; }
+  .carta-item-name { font-family: var(--ff-serif); font-size: 20px; font-weight: 500; color: var(--espresso); line-height: 1.2; }
   .carta-item-price { font-size: 12px; color: var(--gold); font-weight: 500; white-space: nowrap; flex-shrink: 0; }
-  .carta-item-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .carta-item-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
   /* IMÁGENES CONTEXTUALES */
   .carta-visual { width: 100%; aspect-ratio: 21/6; object-fit: cover; object-position: center 60%; display: block; margin-bottom: 40px; }
@@ -381,8 +378,6 @@
     <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CXuyrb53HBRGLrkb3PP2FhIvOg/hf_20260607_145722_397518ac-9b93-4b88-9242-1887de5b4094.png" alt="Desayuno Levure" class="carta-visual">
     <div class="carta-grid">
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/tostado-arabe/80/80" class="carta-item-thumb" alt="Tostado Árabe" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-popular">Popular</div>
           <div class="carta-item-header">
             <div class="carta-item-name">Tostado Árabe</div>
@@ -392,8 +387,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/pan-molde/80/80" class="carta-item-thumb" alt="Tostado Pan de Molde" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Tostado en Pan de Molde</div>
             <div class="carta-item-price">desde $3.200</div>
@@ -402,8 +395,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/medialunas-jq/80/80" class="carta-item-thumb" alt="Medialunas con Jamón y Queso" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-popular">Popular</div>
           <div class="carta-item-header">
             <div class="carta-item-name">Medialunas con Jamón &amp; Queso</div>
@@ -413,8 +404,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/roll-pastelera/80/80" class="carta-item-thumb" alt="Roll de Pastelera" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Roll de Pastelera</div>
             <div class="carta-item-price">desde $2.800</div>
@@ -423,8 +412,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/ensalada-cesar/80/80" class="carta-item-thumb" alt="Ensalada César" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Ensalada César</div>
             <div class="carta-item-price">desde $5.500</div>
@@ -433,8 +420,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/tortilla-papas/80/80" class="carta-item-thumb" alt="Tortilla de Papas" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Tortilla de Papas</div>
             <div class="carta-item-price">desde $4.200</div>
@@ -443,8 +428,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/empanadas-lv/80/80" class="carta-item-thumb" alt="Empanadas" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Empanadas</div>
             <div class="carta-item-price">desde $1.800 c/u</div>
@@ -460,8 +443,6 @@
     <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CXuyrb53HBRGLrkb3PP2FhIvOg/hf_20260607_143927_046a267b-5fc7-4b33-b15a-69cf037a26a3.png" alt="Pastelería Levure" class="carta-visual">
     <div class="carta-grid">
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/lemon-pie-lv/80/80" class="carta-item-thumb" alt="Lemon Pie" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-popular">Popular</div>
           <div class="carta-item-header">
             <div class="carta-item-name">Lemon Pie</div>
@@ -471,8 +452,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/pastafrola-lv/80/80" class="carta-item-thumb" alt="Pastafrola" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-popular">Popular</div>
           <div class="carta-item-header">
             <div class="carta-item-name">Pastafrola</div>
@@ -482,8 +461,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/cheesecake-lv/80/80" class="carta-item-thumb" alt="Cheesecake de Frutos Rojos" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Cheesecake de Frutos Rojos</div>
             <div class="carta-item-price">desde $5.800</div>
@@ -492,8 +469,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/selva-negra-lv/80/80" class="carta-item-thumb" alt="Selva Negra" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Selva Negra</div>
             <div class="carta-item-price">desde $5.500</div>
@@ -502,8 +477,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/coco-arena-lv/80/80" class="carta-item-thumb" alt="Coco en la Arena" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Coco en la Arena</div>
             <div class="carta-item-price">desde $5.800</div>
@@ -512,8 +485,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/torta-choco-lv/80/80" class="carta-item-thumb" alt="Torta de Chocolate" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Torta de Chocolate</div>
             <div class="carta-item-price">desde $5.200</div>
@@ -522,8 +493,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/torta-banada-lv/80/80" class="carta-item-thumb" alt="Torta Bañada" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Torta Bañada</div>
             <div class="carta-item-price">desde $6.500</div>
@@ -532,8 +501,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/maracuya-lv/80/80" class="carta-item-thumb" alt="Torta de Maracuyá" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Torta de Maracuyá</div>
             <div class="carta-item-price">desde $5.500</div>
@@ -549,8 +516,6 @@
     <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CXuyrb53HBRGLrkb3PP2FhIvOg/hf_20260607_143516_84e5774b-5cb3-4dbb-b763-f4a3b010aee0.png" alt="Panadería Levure" class="carta-visual">
     <div class="carta-grid">
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/croissant-lv/80/80" class="carta-item-thumb" alt="Croissant" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-popular">Popular</div>
           <div class="carta-item-header">
             <div class="carta-item-name">Croissant</div>
@@ -560,8 +525,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/facturas-lv/80/80" class="carta-item-thumb" alt="Facturas" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-popular">Popular</div>
           <div class="carta-item-header">
             <div class="carta-item-name">Facturas</div>
@@ -571,8 +534,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/pan-artesanal-lv/80/80" class="carta-item-thumb" alt="Pan Artesanal" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Pan Artesanal</div>
             <div class="carta-item-price">desde $3.500</div>
@@ -581,8 +542,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/pan-campo-lv/80/80" class="carta-item-thumb" alt="Pan de Campo" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Pan de Campo</div>
             <div class="carta-item-price">desde $4.200</div>
@@ -598,8 +557,6 @@
     <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3CXuyrb53HBRGLrkb3PP2FhIvOg/hf_20260607_144524_0aae41c4-1db7-4876-8a4c-62903a4e8b57.png" alt="Bebidas Levure" class="carta-visual">
     <div class="carta-grid">
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/cafe-leche-lv/80/80" class="carta-item-thumb" alt="Café con Leche Doble" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-popular">Popular</div>
           <div class="carta-item-header">
             <div class="carta-item-name">Café con Leche Doble</div>
@@ -609,8 +566,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/capuchino-lv/80/80" class="carta-item-thumb" alt="Capuchino" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Capuchino</div>
             <div class="carta-item-price">desde $3.200</div>
@@ -619,8 +574,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/espresso-lv/80/80" class="carta-item-thumb" alt="Café Espresso" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Café Espresso</div>
             <div class="carta-item-price">desde $2.200</div>
@@ -629,8 +582,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/jugo-naranja-lv/80/80" class="carta-item-thumb" alt="Jugo de Naranja" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Jugo de Naranja</div>
             <div class="carta-item-price">desde $2.500</div>
@@ -639,8 +590,6 @@
         </div>
       </div>
       <div class="carta-item">
-        <img src="https://picsum.photos/seed/licuados-lv/80/80" class="carta-item-thumb" alt="Licuados y Granizados" loading="lazy">
-        <div class="carta-item-body">
           <div class="carta-item-header">
             <div class="carta-item-name">Licuados &amp; Granizados</div>
             <div class="carta-item-price">desde $3.000</div>
@@ -717,36 +666,10 @@
   </div>
 </section>
 
-<!-- #6 INSTAGRAM GRID -->
+<!-- INSTAGRAM -->
 <section class="ig-strip">
   <div class="ig-strip-title">Levure en Instagram</div>
   <div class="ig-strip-sub">Seguinos para ver lo que sale del horno cada día</div>
-  <div class="ig-grid">
-    <a href="https://www.instagram.com/levurepanaderia/" target="_blank" class="ig-photo">
-      <img src="https://picsum.photos/seed/levure-ig1/400/400" alt="" loading="lazy">
-      <div class="ig-overlay"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-    </a>
-    <a href="https://www.instagram.com/levurepanaderia/" target="_blank" class="ig-photo">
-      <img src="https://picsum.photos/seed/levure-ig2/400/400" alt="" loading="lazy">
-      <div class="ig-overlay"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-    </a>
-    <a href="https://www.instagram.com/levurepanaderia/" target="_blank" class="ig-photo">
-      <img src="https://picsum.photos/seed/levure-ig3/400/400" alt="" loading="lazy">
-      <div class="ig-overlay"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-    </a>
-    <a href="https://www.instagram.com/levurepanaderia/" target="_blank" class="ig-photo">
-      <img src="https://picsum.photos/seed/levure-ig4/400/400" alt="" loading="lazy">
-      <div class="ig-overlay"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-    </a>
-    <a href="https://www.instagram.com/levurepanaderia/" target="_blank" class="ig-photo">
-      <img src="https://picsum.photos/seed/levure-ig5/400/400" alt="" loading="lazy">
-      <div class="ig-overlay"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-    </a>
-    <a href="https://www.instagram.com/levurepanaderia/" target="_blank" class="ig-photo">
-      <img src="https://picsum.photos/seed/levure-ig6/400/400" alt="" loading="lazy">
-      <div class="ig-overlay"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-    </a>
-  </div>
   <a href="https://www.instagram.com/levurepanaderia/" target="_blank" class="ig-strip-link">@levurepanaderia</a>
 </section>
 
