@@ -244,8 +244,8 @@
     .encargos { padding: 72px 6vw; }
     .carta-visual { aspect-ratio: 16/5; }
     .ig-grid { grid-template-columns: repeat(2, 1fr); }
-    .nav-mobile { display: flex; flex-direction: column; position: fixed; top: 0; right: 0; height: 100vh; height: 100dvh; width: 72vw; max-width: 300px; background: #F5EDD6; padding: 48px 20px 32px; z-index: 99; transform: translateX(100%); transition: transform 0.28s ease; overflow-y: auto; }
-    .nav-mobile.open { transform: translateX(0); }
+    .nav-mobile { display: flex; flex-direction: column; position: fixed; top: 0; right: -100vw; height: 100vh; height: 100dvh; width: 72vw; max-width: 300px; background: #F5EDD6; padding: 88px 20px 32px; z-index: 99; transition: right 0.28s ease; overflow-y: auto; box-shadow: -4px 0 24px rgba(0,0,0,0.15); }
+    .nav-mobile.open { right: 0; }
     .nav-overlay.open { display: block; }
     .wa-wrap { right: 10px; bottom: 20px; }
     .local-card { padding: 24px 20px; }
@@ -678,8 +678,8 @@
   var burger = document.getElementById('nav-burger');
   var mobileNav = document.getElementById('nav-mobile');
   var navOverlay = document.getElementById('nav-overlay');
-  function closeNav() { mobileNav.classList.remove('open'); if (navOverlay) navOverlay.classList.remove('open'); }
-  function openNav() { mobileNav.classList.add('open'); if (navOverlay) navOverlay.classList.add('open'); }
+  function closeNav() { mobileNav.classList.remove('open'); if (navOverlay) navOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+  function openNav() { mobileNav.classList.add('open'); if (navOverlay) navOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
   if (burger && mobileNav) {
     burger.addEventListener('click', function() { mobileNav.classList.contains('open') ? closeNav() : openNav(); });
     if (navOverlay) navOverlay.addEventListener('click', closeNav);
