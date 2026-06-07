@@ -39,9 +39,9 @@
   .nav-cta:hover { background: var(--espresso) !important; }
   .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
   .nav-burger span { display: block; width: 22px; height: 2px; background: var(--brown); border-radius: 2px; }
-  .nav-mobile { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #F5EDD6; border-bottom: 1px solid var(--border); box-shadow: 0 6px 20px rgba(0,0,0,0.10); padding: 16px 6vw 24px; z-index: 99; flex-direction: column; }
-  .nav-mobile.open { display: flex; }
-  .nav-mobile a { display: block; padding: 14px 0; text-decoration: none; color: var(--espresso); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(44,26,16,0.4); z-index: 98; }
+  .nav-mobile { display: none; }
+  .nav-mobile a { display: block; padding: 18px 0; text-decoration: none; color: var(--espresso); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
   .nav-mobile a:last-child { border-bottom: none; font-weight: 700; }
 
   /* HERO */
@@ -244,6 +244,9 @@
     .encargos { padding: 72px 6vw; }
     .carta-visual { aspect-ratio: 16/5; }
     .ig-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-mobile { display: flex; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0; width: 78vw; max-width: 320px; background: #F5EDD6; padding: 80px 32px 40px; z-index: 99; transform: translateX(100%); transition: transform 0.28s ease; }
+    .nav-mobile.open { transform: translateX(0); }
+    .nav-overlay.open { display: block; }
     .wa-wrap { right: 10px; bottom: 20px; }
     .local-card { padding: 24px 20px; }
     .wa-tooltip { display: none; }
@@ -268,6 +271,7 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
+<div class="nav-overlay" id="nav-overlay"></div>
 <nav class="nav-mobile" id="nav-mobile">
   <a href="#nosotros">Nosotros</a>
   <a href="#carta">Carta</a>
@@ -673,10 +677,14 @@
   // MENÚ MOBILE
   var burger = document.getElementById('nav-burger');
   var mobileNav = document.getElementById('nav-mobile');
+  var navOverlay = document.getElementById('nav-overlay');
+  function closeNav() { mobileNav.classList.remove('open'); if (navOverlay) navOverlay.classList.remove('open'); }
+  function openNav() { mobileNav.classList.add('open'); if (navOverlay) navOverlay.classList.add('open'); }
   if (burger && mobileNav) {
-    burger.addEventListener('click', function() { mobileNav.classList.toggle('open'); });
+    burger.addEventListener('click', function() { mobileNav.classList.contains('open') ? closeNav() : openNav(); });
+    if (navOverlay) navOverlay.addEventListener('click', closeNav);
     mobileNav.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() { mobileNav.classList.remove('open'); });
+      a.addEventListener('click', function() { closeNav(); });
     });
   }
 
