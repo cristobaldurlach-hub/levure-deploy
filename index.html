@@ -41,9 +41,8 @@
   .nav-burger span { display: block; width: 22px; height: 2px; background: var(--brown); border-radius: 2px; }
   .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(44,26,16,0.4); z-index: 98; }
   .nav-overlay.open { display: block; }
-  .nav-mobile { display: none; }
-  .nav-mobile.open { display: flex; }
-  .nav-mobile.sliding { transform: translateX(0) !important; }
+  .nav-clip { display: none; }
+  .nav-mobile { display: flex; flex-direction: column; }
   .nav-mobile a { display: block; padding: 13px 0; text-decoration: none; color: var(--espresso); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
   .nav-mobile a:last-child { border-bottom: none; font-weight: 700; }
 
@@ -247,7 +246,10 @@
     .encargos { padding: 72px 6vw; }
     .carta-visual { aspect-ratio: 16/5; }
     .ig-grid { grid-template-columns: repeat(2, 1fr); }
-    .nav-mobile { flex-direction: column; position: fixed; top: 0; right: 0; height: 100vh; height: 100dvh; width: 72vw; max-width: 300px; background: #F5EDD6; padding: 88px 20px 32px; z-index: 99; transform: translateX(110%); transition: transform 0.28s ease; overflow-y: auto; box-shadow: -4px 0 24px rgba(0,0,0,0.15); }
+    .nav-clip { display: block; position: fixed; top: 0; right: 0; height: 100vh; height: 100dvh; width: 0; overflow: hidden; z-index: 99; }
+    .nav-clip.open { width: 72vw; max-width: 300px; }
+    .nav-mobile { width: 72vw; max-width: 300px; min-height: 100%; background: #F5EDD6; padding: 88px 20px 32px; transform: translateX(100%); transition: transform 0.28s ease; overflow-y: auto; box-shadow: -4px 0 24px rgba(0,0,0,0.15); }
+    .nav-mobile.sliding { transform: translateX(0); }
     .nav-overlay.open { display: block; }
     .wa-wrap { right: 10px; bottom: 20px; }
     .local-card { padding: 24px 20px; }
@@ -274,13 +276,15 @@
   </button>
 </nav>
 <div class="nav-overlay" id="nav-overlay"></div>
-<nav class="nav-mobile" id="nav-mobile">
-  <a href="#nosotros">Nosotros</a>
-  <a href="#carta">Carta</a>
-  <a href="#locales">Locales</a>
-  <a href="#encargos">Encargos</a>
-  <a href="#contacto">Contacto</a>
-</nav>
+<div class="nav-clip" id="nav-clip">
+  <nav class="nav-mobile" id="nav-mobile">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#carta">Carta</a>
+    <a href="#locales">Locales</a>
+    <a href="#encargos">Encargos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -679,15 +683,19 @@
   // MENÚ MOBILE
   var burger = document.getElementById('nav-burger');
   var mobileNav = document.getElementById('nav-mobile');
+  var navClip = document.getElementById('nav-clip');
   var navOverlay = document.getElementById('nav-overlay');
   function closeNav() {
     mobileNav.classList.remove('sliding');
     if (navOverlay) navOverlay.classList.remove('open');
     document.body.style.overflow = '';
-    setTimeout(function() { mobileNav.classList.remove('open'); }, 300);
+    mobileNav.addEventListener('transitionend', function handler() {
+      mobileNav.removeEventListener('transitionend', handler);
+      if (navClip) navClip.classList.remove('open');
+    });
   }
   function openNav() {
-    mobileNav.classList.add('open');
+    if (navClip) navClip.classList.add('open');
     requestAnimationFrame(function() {
       requestAnimationFrame(function() { mobileNav.classList.add('sliding'); });
     });
@@ -695,7 +703,7 @@
     document.body.style.overflow = 'hidden';
   }
   if (burger && mobileNav) {
-    burger.addEventListener('click', function() { mobileNav.classList.contains('open') ? closeNav() : openNav(); });
+    burger.addEventListener('click', function() { navClip && navClip.classList.contains('open') ? closeNav() : openNav(); });
     if (navOverlay) navOverlay.addEventListener('click', closeNav);
     mobileNav.querySelectorAll('a').forEach(function(a) {
       a.addEventListener('click', function() { closeNav(); });
