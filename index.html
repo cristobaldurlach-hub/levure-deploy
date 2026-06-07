@@ -39,16 +39,10 @@
   .nav-cta:hover { background: var(--espresso) !important; }
   .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
   .nav-burger span { display: block; width: 22px; height: 2px; background: var(--brown); border-radius: 2px; }
-  .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(44,26,16,0.45); z-index: 98; }
-  .nav-overlay.open { display: block; }
-  .nav-mobile { display: flex; flex-direction: column; position: fixed; top: 0; right: 0; bottom: 0; width: 280px; background: #F5EDD6; box-shadow: -6px 0 32px rgba(0,0,0,0.18); padding: 32px 32px 40px; z-index: 99; transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.4,0,0.2,1); }
-  .nav-mobile.open { transform: translateX(0); }
-  .nav-mobile-close { align-self: flex-end; background: none; border: none; cursor: pointer; padding: 4px; margin-bottom: 40px; }
-  .nav-mobile-close span { display: block; width: 22px; height: 2px; background: var(--espresso); border-radius: 2px; }
-  .nav-mobile-close span:first-child { transform: rotate(45deg) translate(2px, 2px); }
-  .nav-mobile-close span:last-child { transform: rotate(-45deg) translate(2px, -2px); }
-  .nav-mobile a { display: block; padding: 16px 0; text-decoration: none; color: var(--espresso); font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); transition: color 0.2s; }
-  .nav-mobile a:last-child { border-bottom: none; margin-top: 12px; font-weight: 700; }
+  .nav-mobile { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #F5EDD6; border-bottom: 1px solid var(--border); box-shadow: 0 6px 20px rgba(0,0,0,0.10); padding: 16px 6vw 24px; z-index: 99; flex-direction: column; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { display: block; padding: 14px 0; text-decoration: none; color: var(--espresso); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  .nav-mobile a:last-child { border-bottom: none; font-weight: 700; }
 
   /* HERO */
   .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 68px; }
@@ -274,11 +268,7 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-overlay" id="nav-overlay"></div>
 <nav class="nav-mobile" id="nav-mobile">
-  <button class="nav-mobile-close" id="nav-close" aria-label="Cerrar menú">
-    <span></span><span></span>
-  </button>
   <a href="#nosotros">Nosotros</a>
   <a href="#carta">Carta</a>
   <a href="#locales">Locales</a>
@@ -683,16 +673,10 @@
   // MENÚ MOBILE
   var burger = document.getElementById('nav-burger');
   var mobileNav = document.getElementById('nav-mobile');
-  var navOverlay = document.getElementById('nav-overlay');
-  var navClose = document.getElementById('nav-close');
-  function openNav() { mobileNav.classList.add('open'); navOverlay.classList.add('open'); }
-  function closeNav() { mobileNav.classList.remove('open'); navOverlay.classList.remove('open'); }
   if (burger && mobileNav) {
-    burger.addEventListener('click', openNav);
-    if (navClose) navClose.addEventListener('click', closeNav);
-    if (navOverlay) navOverlay.addEventListener('click', closeNav);
+    burger.addEventListener('click', function() { mobileNav.classList.toggle('open'); });
     mobileNav.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() { closeNav(); });
+      a.addEventListener('click', function() { mobileNav.classList.remove('open'); });
     });
   }
 
